@@ -1,0 +1,1148 @@
+    <!DOCTYPE html>
+    <html lang="pt-br">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>COLA AQUI | Maratona DevImpacto</title>
+
+        <link rel="stylesheet" href="sttyle.css">
+        <link rel="stylesheet" href="videos">
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@700&display=swap"
+            rel="stylesheet"
+        >
+        
+    <!-- BOTÃO FLUTUANTE DE CONFIGURAÇÕES -->
+    <a
+        href="configuracoes.html"
+        title="Configurações"
+        aria-label="Abrir configurações"
+        style="
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1A1D24;
+            color: #2CFF62;
+            border: 1px solid #2CFF62;
+            border-radius: 50%;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(44,255,98,0.2);
+            z-index: 9999;
+            transition: transform 0.2s, background 0.2s;
+        "
+        onmouseover="this.style.transform='scale(1.1)'"
+        onmouseout="this.style.transform='scale(1)'"
+    >
+        ⚙
+    </a>
+
+
+    <!-- BOTÃO FLUTUANTE DA COMUNIDADE -->
+    <a
+        href="comunidade_forum_contexto_v312.html"
+        id="btn-comunidade"
+        title="Abrir comunidade"
+        aria-label="Abrir comunidade"
+        style="
+            position: fixed;
+            right: 20px;
+            bottom: 85px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1A1D24;
+            color: #FF5A1F;
+            border: 1px solid #FF5A1F;
+            border-radius: 50%;
+            font-size: 23px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(255,90,31,0.25);
+            z-index: 9999;
+        "
+    >
+        💬
+    </a>
+
+
+
+    </head>
+
+
+    <body>
+
+
+        <!-- =====================================================
+            TOPO
+        ====================================================== -->
+
+        <header class="top-bar">
+
+            <div class="logo mono">
+                *<* COLA AQUI <span>/> [Aluno]</span>
+            </div>
+
+
+            <div class="nav mono">
+                Maratona DevImpacto • Educação • Florescendo Talentos
+            </div>
+
+
+            <div class="mono">
+
+                MEUS PONTOS:
+
+                <b
+                    id="meus-pontos"
+                    style="color:#2CFF62"
+                >
+                    0
+                </b>
+
+            </div>
+
+
+            <div>
+
+                <a
+                    href="teladoprofessor.html"
+                    class="btn-professor mono"
+                >
+                    PROFESSOR
+                </a>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================================
+            HERO
+        ====================================================== -->
+
+        <section class="hero">
+
+
+            <!-- =========================
+                APRESENTAÇÃO
+            ========================== -->
+
+            <div>
+
+                <h1>
+
+                    Quem entendeu
+                    <i>explica.</i>
+
+                    <br>
+
+                    Quem não entendeu
+                    <i style="color:#FF5A1F">
+                        pergunta.
+                    </i>
+
+                </h1>
+
+
+                <p>
+
+                    60% dos alunos da rede pública ficam com dúvida
+                    depois da aula e não têm onde perguntar.
+                    O COLA AQUI Chegou com um proposito de mitigar dúvidas,
+                    conectando com professores e aluno.
+
+                </p>
+
+
+
+                <!-- ESTATÍSTICAS -->
+
+                <div class="stats mono">
+
+
+                    <div class="stat">
+
+                        <b>
+                            127
+                        </b>
+
+                        dúvidas resolvidas
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <b>
+                            3 min
+                        </b>
+
+                        tempo médio
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <b>
+                            89%
+                        </b>
+
+                        sem professor
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                BUSCA
+            ========================== -->
+
+            <div class="card">
+
+                <h3 class="mono">
+                    🔎 ENCONTRE SUA DÚVIDA
+                </h3>
+
+
+                <p
+                    style="
+                        color:#8B90A0;
+                        font-size:12px;
+                        margin:10px 0 18px;
+                    "
+                >
+
+                    Digite o assunto que você não entendeu
+                    e encontre um caminho para aprender.
+
+                </p>
+
+
+                <input
+                    type="text"
+                    id="busca"
+                    class="field"
+                    placeholder="Ex: não entendi Bhaskara..."
+                >
+
+
+            
+   
+<button
+    class="btn-orange mono"
+    onclick="window.location.href='comunidade_forum_contexto_v312.html'"
+    style="background:#FF5A1F;"
+>
+    PERGUNTAR PARA A TURMA →
+</button>
+
+
+
+
+                <div
+                    id="resultado-busca"
+                    style="display:none;margin-top:15px;"
+                ></div>
+
+
+                <p
+                    class="mono"
+                    style="
+                        font-size:10px;
+                        color:#5C6270;
+                        margin-top:10px;
+                    "
+                >
+
+                    ⚡ Procure uma explicação antes de perguntar
+                    para a turma.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+            CENTRAL DE MATÉRIAS
+        ====================================================== -->
+
+        <section class="materias-section">
+
+
+            <div class="section-head">
+
+                <div>
+
+                    <span
+                        class="mono"
+                        style="
+                            color:#2CFF62;
+                            font-size:11px;
+                        "
+                    >
+                        📚 CENTRAL DE ESTUDOS
+                    </span>
+
+
+                    <h2
+                        class="mono"
+                        style="margin-top:6px;"
+                    >
+                        ESCOLHA UMA MATÉRIA
+                    </h2>
+
+
+                    <p
+                        style="
+                            color:#8B90A0;
+                            font-size:12px;
+                            margin-top:5px;
+                        "
+                    >
+
+                        Encontre conteúdos, aulas e explicações
+                        para cada assunto.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                MATÉRIAS
+            ========================== -->
+
+            <div class="materias-grid-completo">
+
+
+                <!-- MATEMÁTICA -->
+
+                <button
+                    class="materia-card-grande"
+                    onclick="selecionarMateria('Matemática')"
+                >
+
+                    <span class="materia-icon">
+                        📐
+                    </span>
+
+                    <span class="materia-nome">
+                        Matemática
+                    </span>
+
+                    <span class="materia-desc">
+                        Equações, funções, geometria e cálculos.
+                    </span>
+
+                    <span class="materia-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+
+                <!-- PORTUGUÊS -->
+
+                <button
+                    class="materia-card-grande"
+                    onclick="selecionarMateria('Português')"
+                >
+
+                    <span class="materia-icon">
+                        📖
+                    </span>
+
+                    <span class="materia-nome">
+                        Português
+                    </span>
+
+                    <span class="materia-desc">
+                        Gramática, interpretação e literatura.
+                    </span>
+
+                    <span class="materia-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+
+                <!-- FÍSICA -->
+
+                <button
+                    class="materia-card-grande"
+                    onclick="selecionarMateria('Física')"
+                >
+
+                    <span class="materia-icon">
+                        ⚡
+                    </span>
+
+                    <span class="materia-nome">
+                        Física
+                    </span>
+
+                    <span class="materia-desc">
+                        Movimento, energia, força e eletricidade.
+                    </span>
+
+                    <span class="materia-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+
+                <!-- QUÍMICA -->
+
+                <button
+                    class="materia-card-grande"
+                    onclick="selecionarMateria('Química')"
+                >
+
+                    <span class="materia-icon">
+                        🧪
+                    </span>
+
+                    <span class="materia-nome">
+                        Química
+                    </span>
+
+                    <span class="materia-desc">
+                        Átomos, moléculas, reações e tabela periódica.
+                    </span>
+
+                    <span class="materia-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+
+                <!-- HISTÓRIA -->
+
+                <button
+                    class="materia-card-grande"
+                    onclick="selecionarMateria('História')"
+                >
+
+                    <span class="materia-icon">
+                        🏛️
+                    </span>
+
+                    <span class="materia-nome">
+                        História
+                    </span>
+
+                    <span class="materia-desc">
+                        Brasil, guerras, revoluções e civilizações.
+                    </span>
+
+                    <span class="materia-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+
+                <!-- BIOLOGIA -->
+
+                <button
+                    class="materia-card-grande"
+                    onclick="selecionarMateria('Biologia')"
+                >
+
+                    <span class="materia-icon">
+                        🧬
+                    </span>
+
+                    <span class="materia-nome">
+                        Biologia
+                    </span>
+
+                    <span class="materia-desc">
+                        Células, genética, corpo humano e ecologia.
+                    </span>
+
+                    <span class="materia-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+
+                <!-- GEOGRAFIA -->
+
+                <button
+                    class="materia-card-grande"
+                    onclick="selecionarMateria('Geografia')"
+                >
+
+                    <span class="materia-icon">
+                        🌎
+                    </span>
+
+                    <span class="materia-nome">
+                        Geografia
+                    </span>
+
+                    <span class="materia-desc">
+                        Mapas, clima, população e espaço geográfico.
+                    </span>
+
+                    <span class="materia-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+
+                <!-- MAIS MATÉRIAS -->
+
+                <button
+                    class="materia-card-grande materia-extra"
+                    onclick="mostrarMaisMaterias()"
+                >
+
+                    <span class="materia-icon">
+                        ＋
+                    </span>
+
+                    <span class="materia-nome">
+                        Mais matérias
+                    </span>
+
+                    <span class="materia-desc">
+                        Filosofia, Sociologia, Inglês e outras.
+                    </span>
+
+                    <span class="materia-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+            </div>
+
+        </section>
+
+        <!-- =====================================================
+            COMO FUNCIONA
+        ====================================================== -->
+
+        <section class="learning-path">
+
+
+            <div class="card path-card">
+
+
+                <span
+                    class="mono"
+                    style="color:#2CFF62;"
+                >
+                    COMO FUNCIONA
+                </span>
+
+
+                <h2>
+                    Travou? A gente tem um caminho.
+                </h2>
+
+
+
+                <div class="path-steps">
+
+
+                    <!-- PASSO 1 -->
+
+                    <div class="path-step">
+
+                        <strong>
+                            01
+                        </strong>
+
+                        <div>
+
+                            <b>
+                                🔎 Procure
+                            </b>
+
+                            <p>
+                                Digite o assunto que você não entendeu.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PASSO 2 -->
+
+                    <div class="path-step">
+
+                        <strong>
+                            02
+                        </strong>
+
+                        <div>
+
+                            <b>
+                                🎥 Assista
+                            </b>
+
+                            <p>
+                                Veja uma explicação rápida sobre o assunto.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PASSO 3 -->
+
+                    <div class="path-step">
+
+                        <strong>
+                            03
+                        </strong>
+
+                        <div>
+
+                            <b>
+                                💬 Pergunte
+                            </b>
+
+                            <p>
+                                Ainda ficou com dúvida? Pergunte para a turma.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+            DÚVIDAS DA TURMA
+        ====================================================== -->
+
+        <section class="grid">
+
+
+            <div>
+
+
+                <div class="section-head">
+
+
+                    <div>
+
+                        <h3 class="mono">
+                            💬 DÚVIDAS DA TURMA
+                        </h3>
+
+
+                        <p
+                            style="
+                                color:#8B90A0;
+                                font-size:11px;
+                                margin-top:4px;
+                            "
+                        >
+
+                            Veja o que seus colegas estão perguntando.
+
+                        </p>
+
+                    </div>
+
+
+                    <span class="online mono">
+                        ● ONLINE
+                    </span>
+
+
+                </div>
+
+
+
+                <div
+                    class="feed"
+                    id="feed"
+                >
+
+
+                    <!-- DÚVIDA 1 -->
+
+                    <div
+                        class="duvida urgente"
+                        data-id="1"
+                        data-pergunta="divisão de fração"
+                    >
+
+                        <span class="tag mono">
+                            Matemática • 2 min • Ana 2ºB
+                        </span>
+
+                        <br>
+
+                        <b>
+                            Como fazer divisão de fração?
+                        </b>
+
+                        <p
+                            style="
+                                color:#8B90A0;
+                                font-size:12px;
+                            "
+                        >
+                            Travo na hora de inverter a segunda.
+                        </p>
+
+                        <br>
+
+                        <button
+                            class="btn-green mono"
+                            onclick="explicar(1)"
+                        >
+                            RESPONDER
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- DÚVIDA 2 -->
+
+                    <div
+                        class="duvida"
+                        data-id="2"
+                        data-pergunta="revolução pernambucana"
+                    >
+
+                        <span class="tag mono">
+                            História • 5 min
+                        </span>
+
+                        <br>
+
+                        <b>
+                            O que foi Revolução Pernambucana?
+                        </b>
+
+                        <p
+                            style="
+                                color:#8B90A0;
+                                font-size:12px;
+                            "
+                        >
+                            Preciso pra prova amanhã!
+                        </p>
+
+                        <br>
+
+                        <button
+                            class="btn-green mono"
+                            onclick="explicar(2)"
+                        >
+                            RESPONDER
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- DÚVIDA 3 -->
+
+                    <div
+                        class="duvida"
+                        data-id="3"
+                        data-pergunta="metáfora"
+                    >
+
+                        <span class="tag mono">
+                            Português • 1 min • Você
+                        </span>
+
+                        <br>
+
+                        <b>
+                            Não entendo metáfora.
+                        </b>
+
+                        <p
+                            style="
+                                color:#8B90A0;
+                                font-size:12px;
+                            "
+                        >
+                            Professor explicou mas não entendi.
+                        </p>
+
+                        <br>
+
+                        <button
+                            class="btn-green mono"
+                            onclick="explicar(3)"
+                        >
+                            RESPONDER
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                LADO DIREITO
+            ================================================== -->
+
+            <div>
+
+
+                <div class="card pitch">
+
+
+                    <h3 class="mono">
+                        💡 AINDA NÃO ENTENDEU?
+                    </h3>
+
+
+                    <p>
+
+                        Não tem problema.
+                        Explique sua dúvida com suas palavras
+                        e deixe a turma ajudar.
+
+                    </p>
+
+
+                    <br>
+
+
+                    <button
+                        class="btn-orange mono"
+                        onclick="abrirPergunta()"
+                        style="background:#111318;"
+                    >
+                        PERGUNTAR PARA A TURMA →
+                    </button>
+
+
+                </div>
+
+
+                <br>
+
+
+                <!-- RANKING -->
+
+                <div class="card">
+
+
+                    <h4 class="mono">
+                        🏆 RANKING DA SEMANA
+                    </h4>
+
+
+                    <br>
+
+
+                
+    <div id="lista-ranking">
+
+        <div class="ranking-item mono">
+            <span>1. Carlos - 3ºA</span>
+            <b style="color:#2CFF62">127 pts</b>
+        </div>
+
+        <div class="ranking-item mono">
+            <span>2. Ana - 2ºB</span>
+            <b>98 pts</b>
+        </div>
+
+        <div class="ranking-item mono">
+            <span>3. Você</span>
+            <b id="ranking-meus-pontos">0 pts</b>
+        </div>
+
+    </div>
+
+
+
+        <!-- =====================================================
+            RODAPÉ
+        ====================================================== -->
+
+        <footer class="footer mono">
+
+            Feito por alunos da rede pública para a
+            Maratona DevImpacto CESAR • Jaboatão - PE
+
+        </footer>
+
+
+
+        <!-- =====================================================
+            JAVASCRIPT PRINCIPAL
+        ====================================================== -->
+
+        <script src="./script.js"></script>
+
+
+
+        <!-- =====================================================
+            FUNÇÕES DA CENTRAL DE MATÉRIAS
+        ====================================================== -->
+
+        <script>
+
+            /*
+            * Selecionar matéria
+            */
+
+            function selecionarMateria(materia) {
+
+                const busca = document.getElementById("busca");
+
+                const resultado =
+                    document.getElementById("resultado-busca");
+
+
+                if (busca) {
+
+                    busca.value = materia + ": ";
+
+                    busca.focus();
+
+                }
+
+
+                if (resultado) {
+
+                    resultado.style.display = "block";
+
+
+                    resultado.innerHTML = `
+
+                        <div class="card">
+
+                            <span
+                                class="mono"
+                                style="color:#2CFF62;"
+                            >
+                                ${materia.toUpperCase()}
+                            </span>
+
+
+                            <h3 style="margin-top:8px;">
+
+                                O que você não entendeu
+                                em ${materia}?
+
+                            </h3>
+
+
+                            <p
+                                style="
+                                    color:#8B90A0;
+                                    font-size:12px;
+                                    margin-top:6px;
+                                "
+                            >
+
+                                Digite o assunto acima
+                                para encontrar uma explicação.
+
+                            </p>
+
+                        </div>
+
+                    `;
+
+                }
+
+
+                window.scrollTo({
+
+                    top:0,
+
+                    behavior:"smooth"
+
+                });
+
+            }
+
+
+
+            /*
+            * Mais matérias
+            */
+
+            function mostrarMaisMaterias() {
+
+                alert(
+                    "🚧 Mais matérias estão chegando!\n\n" +
+                    "Filosofia\n" +
+                    "Sociologia\n" +
+                    "Inglês\n" +
+                    "Literatura"
+                );
+
+            }
+
+
+
+            /*
+            * Perguntar para a turma
+            */
+
+            function abrirPergunta() {
+
+                const titulo =
+                    document.getElementById("titulo");
+
+
+                if (titulo) {
+
+                    titulo.scrollIntoView({
+
+                        behavior:"smooth",
+
+                        block:"center"
+
+                    });
+
+
+                    setTimeout(() => {
+
+                        titulo.focus();
+
+                    },500);
+
+                } else {
+
+                    window.scrollTo({
+
+                        top:0,
+
+                        behavior:"smooth"
+
+                    });
+
+                }
+
+            }
+
+
+
+            /*
+            * Enter na busca
+            */
+
+            const campoBusca =
+                document.getElementById("busca");
+
+
+            if (campoBusca) {
+
+                campoBusca.addEventListener(
+                    "keydown",
+                    function(event) {
+
+                        if (event.key === "Enter") {
+
+                            if (typeof buscarAjuda === "function") {
+
+                                buscarAjuda();
+
+                            }
+
+                        }
+
+                    }
+                );
+
+            }
+
+        </script>
+
+
+
+        <!-- =====================================================
+            BOTÃO FLUTUANTE DE VÍDEOS
+        ====================================================== -->
+
+        <a
+            href="videoaulas.html"
+            id="btn-videos"
+            style="
+                position:fixed;
+                bottom:20px;
+                right:20px;
+                background:#2CFF62;
+                color:#000;
+                padding:12px 18px;
+                border-radius:30px;
+                font-family:monospace;
+                font-weight:bold;
+                text-decoration:none;
+                box-shadow:0 4px 15px rgba(44,255,98,0.4);
+                z-index:9999;
+            "
+        >
+
+            ▶ VIDEO AULAS
+
+        </a>
+
+
+    </body>
+
+    </html>

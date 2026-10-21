@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Salas de Ajuda | COLA AQUI</title>
+
+<link rel="stylesheet" href="./salas.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="topbar">
+    <a href="index.html" class="logo">
+        &lt; COLA AQUI <span>/&gt;</span>
+    </a>
+
+    <div class="topbar-right">
+        <span class="status"><span></span> COMUNIDADE</span>
+        <a href="index.html" class="btn-voltar">← VOLTAR</a>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="hero">
+        <span class="eyebrow">💬 CENTRAL DE AJUDA</span>
+
+        <h1>Uma dúvida? <span>Cola aqui.</span></h1>
+
+        <p>
+            Entre em uma sala, compartilhe sua dúvida e ajude
+            outros alunos a aprender também.
+        </p>
+
+        <div class="stats">
+            <div class="stat">
+                <strong id="total-perguntas">0</strong>
+                <span>PERGUNTAS</span>
+            </div>
+
+            <div class="stat">
+                <strong id="total-respostas">0</strong>
+                <span>RESPOSTAS</span>
+            </div>
+
+            <div class="stat">
+                <strong>7</strong>
+                <span>MATÉRIAS</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="rooms-section">
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">ESCOLHA SEU DESTINO</span>
+                <h2>📚 Salas de estudo</h2>
+            </div>
+
+            <button id="btn-todas" class="btn-todas active" type="button">
+                Todas
+            </button>
+        </div>
+
+        <div class="rooms-grid">
+
+            <button class="room-card" data-materia="Matemática" type="button">
+                <span class="room-icon">📐</span>
+                <span class="room-name">Matemática</span>
+                <span class="room-desc">Cálculos, equações e problemas.</span>
+                <span class="room-count" data-count="Matemática">0 perguntas</span>
+            </button>
+
+            <button class="room-card" data-materia="Português" type="button">
+                <span class="room-icon">📖</span>
+                <span class="room-name">Português</span>
+                <span class="room-desc">Gramática, textos e redação.</span>
+                <span class="room-count" data-count="Português">0 perguntas</span>
+            </button>
+
+            <button class="room-card" data-materia="Física" type="button">
+                <span class="room-icon">⚡</span>
+                <span class="room-name">Física</span>
+                <span class="room-desc">Força, energia e movimento.</span>
+                <span class="room-count" data-count="Física">0 perguntas</span>
+            </button>
+
+            <button class="room-card" data-materia="Química" type="button">
+                <span class="room-icon">🧪</span>
+                <span class="room-name">Química</span>
+                <span class="room-desc">Átomos, elementos e reações.</span>
+                <span class="room-count" data-count="Química">0 perguntas</span>
+            </button>
+
+            <button class="room-card" data-materia="História" type="button">
+                <span class="room-icon">🏛️</span>
+                <span class="room-name">História</span>
+                <span class="room-desc">Povos, acontecimentos e épocas.</span>
+                <span class="room-count" data-count="História">0 perguntas</span>
+            </button>
+
+            <button class="room-card" data-materia="Biologia" type="button">
+                <span class="room-icon">🧬</span>
+                <span class="room-name">Biologia</span>
+                <span class="room-desc">Vida, células e natureza.</span>
+                <span class="room-count" data-count="Biologia">0 perguntas</span>
+            </button>
+
+            <button class="room-card" data-materia="Geografia" type="button">
+                <span class="room-icon">🌎</span>
+                <span class="room-name">Geografia</span>
+                <span class="room-desc">Clima, mapas e sociedade.</span>
+                <span class="room-count" data-count="Geografia">0 perguntas</span>
+            </button>
+
+        </div>
+    </section>
+
+    <section class="forum-section" id="forum">
+
+        <div class="section-heading forum-heading">
+            <div>
+                <span class="eyebrow">COMUNIDADE DE ALUNOS</span>
+                <h2 id="titulo-forum">🗨️ Todas as dúvidas</h2>
+            </div>
+
+            <button class="btn-publicar" id="btn-abrir-form" type="button">
+                + Fazer pergunta
+            </button>
+        </div>
+
+        <form id="form-pergunta" class="question-form hidden">
+
+            <div class="form-top">
+                <h3>✍️ Qual é a sua dúvida?</h3>
+                <button id="btn-fechar-form" class="btn-fechar" type="button" aria-label="Fechar formulário">✕</button>
+            </div>
+
+            <label for="nome-aluno">Seu nome ou apelido</label>
+            <input
+                id="nome-aluno"
+                type="text"
+                maxlength="35"
+                placeholder="Ex.: Aluno curioso"
+                required>
+
+            <label for="materia-pergunta">Sala da matéria</label>
+            <select id="materia-pergunta" required>
+                <option value="Matemática">📐 Matemática</option>
+                <option value="Português">📖 Português</option>
+                <option value="Física">⚡ Física</option>
+                <option value="Química">🧪 Química</option>
+                <option value="História">🏛️ História</option>
+                <option value="Biologia">🧬 Biologia</option>
+                <option value="Geografia">🌎 Geografia</option>
+            </select>
+
+            <label for="titulo-pergunta">Título da pergunta</label>
+            <input
+                id="titulo-pergunta"
+                type="text"
+                maxlength="100"
+                placeholder="Ex.: Como resolvo uma equação do segundo grau?"
+                required>
+
+            <label for="texto-pergunta">Explique sua dúvida</label>
+            <textarea
+                id="texto-pergunta"
+                rows="4"
+                maxlength="1200"
+                placeholder="Conte o que você já tentou fazer..."
+                required></textarea>
+
+            <button class="btn-publicar submit-btn" type="submit">
+                PUBLICAR PERGUNTA ↗
+            </button>
+
+            <p class="form-note">
+                Protótipo local: sua publicação fica salva neste navegador.
+            </p>
+        </form>
+
+        <div class="forum-tools">
+            <input
+                type="search"
+                id="buscar-pergunta"
+                placeholder="🔎 Buscar dúvidas..."
+                aria-label="Buscar dúvidas">
+
+            <select id="filtro-ordem" aria-label="Ordenar perguntas">
+                <option value="recentes">Mais recentes</option>
+                <option value="respostas">Mais respondidas</option>
+            </select>
+        </div>
+
+        <div id="lista-perguntas" class="questions-list"></div>
+
+        <p id="mensagem-vazia" class="empty-state hidden">
+            <span>🫥</span>
+            <strong>Nenhuma dúvida por aqui ainda.</strong>
+            <span>Seja o primeiro a fazer uma pergunta nessa sala!</span>
+        </p>
+
+    </section>
+
+    <footer>
+        <span>&lt; COLA AQUI /&gt;</span>
+        <p>Quem entendeu explica. Quem não entendeu pergunta.</p>
+        <small>Protótipo de comunidade estudantil.</small>
+    </footer>
+
+</main>
+
+<script src="salas.js"></script>
+
+</body>
+</html>

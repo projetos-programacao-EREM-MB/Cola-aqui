@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAINEL DO PROFESSOR | COLA AQUI</title>
+<link rel="stylesheet" href="teladoprof.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="top-bar">
+  <div class="logo mono">< COLA AQUI <span>/> [PROFESSOR]</span></div>
+  <div class="nav mono">Painel de Moderação & Validação Peer-to-Peer</div>
+  <div><a href="index.html" class="btn-aluno">ALUNO</a> </div>
+</header>
+
+<section class="hero" style="padding-bottom: 20px;">
+  <div>
+    <h1>Validação <i>Ágil</i> de Respostas.<br>Garantia de <i style="color:#2CFF62">Qualidade.</i></h1>
+    <p>Monitore o que os alunos estão explicando uns aos outros. Aprove respostas corretas para bonificar os mentores e manter o conteúdo pedagógico seguro e preciso.</p>
+    <div class="stats mono">
+      <div class="stat"><b id="count-pendentes">3</b> para validar</div>
+      <div class="stat"><b id="count-validadas">14</b> validadas hoje</div>
+      <div class="stat"><b>42</b> alunos ativos</div>
+    </div>
+  </div>
+  <div class="card">
+    <h3 class="mono">📢 AVISO GERAL À TURMA</h3><br>
+    <input class="field" id="aviso-titulo" placeholder="Título (Ex: Prova amanhã!)">
+    <textarea class="field" id="aviso-texto" placeholder="Digite um recado rápido para aparecer no feed dos alunos..."></textarea>
+    <button class="btn-orange mono" onclick="enviarAviso()">DISPARAR AVISO ⚡</button>
+  </div>
+  <!-- AREA DO PROFESSOR - ADICIONAR VIDEO -->
+<div style="background:#1A1D27;border:1px solid #2A2D3A;border-radius:12px;padding:16px;margin:16px">
+  <h3 class="mono" style="color:#2CFF62">+ ADICIONAR VIDEO AULA</h3>
+
+  <input id="tituloVideo" placeholder="Titulo ex: Bhaskara em 1 min" style="width:100%;margin-top:12px;padding:10px;border-radius:8px;border:1px solid #444;background:#000;color:#fff">
+
+  <select id="materiaVideo" style="width:100%;margin-top:8px;padding:10px;border-radius:8px;border:1px solid #444;background:#000;color:#fff">
+    <option value="mat">MATEMÁTICA</option>
+    <option value="fis">FÍSICA</option>
+    <option value="qui">QUÍMICA</option>
+    <option value="bio">BIOLOGIA</option>
+  </select>
+
+  <input id="linkVideo" placeholder="Link do YouTube ex: https://youtu.be/..." style="width:100%;margin-top:8px;padding:10px;border-radius:8px;border:1px solid #444;background:#000;color:#fff">
+
+  <button onclick="adicionarVideo()" class="mono" style="width:100%;margin-top:12px;background:#2CFF62;border:none;padding:12px;border-radius:8px;font-weight:bold;cursor:pointer">PUBLICAR NO FEED ▶</button>
+</div>
+
+<script>
+function pegarIdYoutube(url){
+  // pega ID de qualquer link do youtube
+  let id = "";
+  if(url.includes("v=")) id = url.split("v=")[1].split("&")[0];
+  else if(url.includes("youtu.be/")) id = url.split("youtu.be/")[1].split("?")[0];
+  else if(url.includes("embed/")) id = url.split("embed/")[1].split("?")[0];
+  else id = url; // se colou só o ID
+  return id;
+}
+
+function adicionarVideo(){
+  let titulo = document.getElementById('tituloVideo').value;
+  let materia = document.getElementById('materiaVideo').value;
+  let link = document.getElementById('linkVideo').value;
+
+  if(!titulo ||!link){ alert("Preencha tudo!"); return; }
+
+  let id = pegarIdYoutube(link);
+  let videos = JSON.parse(localStorage.getItem('videos_professor') || "[]");
+
+  videos.unshift({ titulo, materia, id, prof: "@prof.voce", data: new Date().toLocaleDateString() });
+  localStorage.setItem('videos_professor', JSON.stringify(videos));
+
+  alert("Video publicado! Já tá no feed dos alunos ✅");
+  // limpa
+  document.getElementById('tituloVideo').value = "";
+  document.getElementById('linkVideo').value = "";
+}
+</script>
+</section>
+
+<section class="grid" style="margin-top: 10px;">
+  <div>
+    <h3 class="mono" style="margin-bottom:14px">📝 RESPOSTAS AGUARDANDO SUA VALIDAÇÃO</h3>
+    <div class="feed" id="feed-professor">
+      <!-- Item 1 -->
+      <div class="duvida urgente" id="val-1">
+        <span class="tag mono">Matemática • Respondido por Carlos (3ºA)</span><br>
+        <b>Dúvida: Como fazer divisão de fração?</b>
+        <div class="resposta-aluno" style="background: rgba(44,255,98,0.05); border-left: 3px solid #2CFF62; padding: 10px; margin: 10px 0; border-radius: 4px;">
+          <small class="mono" style="color:#2CFF62">EXPLICAÇÃO DO ALUNO:</small>
+          <p style="font-size:13px; color:#fff; margin-top:4px;">"Você repete a primeira fração do jeito que tá, troca o sinal de divisão por multiplicação e inverte a segunda fração (numerador vira denominador)."</p>
+        </div>
+        <div style="display: flex; gap: 10px; margin-top: 12px;">
+          <button class="btn-green mono" style="flex:1;" onclick="aprovarResposta('val-1', 'Carlos (3ºA)', '+15 pts')">APROVAR & DAR +15 PTS ✓</button>
+          <button class="btn-orange mono" style="flex:1; background: #FF3B30;" onclick="rejeitarResposta('val-1')">PEDIR REVISÃO ✗</button>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="duvida" id="val-2">
+        <span class="tag mono">História • Respondido por Mariana (1ºB)</span><br>
+        <b>Dúvida: O que foi Revolução Pernambucana?</b>
+        <div class="resposta-aluno" style="background: rgba(44,255,98,0.05); border-left: 3px solid #2CFF62; padding: 10px; margin: 10px 0; border-radius: 4px;">
+          <small class="mono" style="color:#2CFF62">EXPLICAÇÃO DO ALUNO:</small>
+          <p style="font-size:13px; color:#fff; margin-top:4px;">"Foi um movimento emancipacionista que aconteceu em 1817 em Pernambuco contra o absolutismo português e a alta carga de impostos."</p>
+        </div>
+        <div style="display: flex; gap: 10px; margin-top: 12px;">
+          <button class="btn-green mono" style="flex:1;" onclick="aprovarResposta('val-2', 'Mariana (1ºB)', '+15 pts')">APROVAR & DAR +15 PTS ✓</button>
+          <button class="btn-orange mono" style="flex:1; background: #FF3B30;" onclick="rejeitarResposta('val-2')">PEDIR REVISÃO ✗</button>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="duvida" id="val-3">
+        <span class="tag mono">Português • Respondido por João (2ºA)</span><br>
+        <b>Dúvida: não entendo metáfora</b>
+        <div class="resposta-aluno" style="background: rgba(44,255,98,0.05); border-left: 3px solid #2CFF62; padding: 10px; margin: 10px 0; border-radius: 4px;">
+          <small class="mono" style="color:#2CFF62">EXPLICAÇÃO DO ALUNO:</small>
+          <p style="font-size:13px; color:#fff; margin-top:4px;">"Metáfora é uma comparação abreviada. Tipo quando dizemos 'ele é um touro forte', a gente tá comparando a força dele com a de um touro sem usar a palavra 'como'."</p>
+        </div>
+        <div style="display: flex; gap: 10px; margin-top: 12px;">
+          <button class="btn-green mono" style="flex:1;" onclick="aprovarResposta('val-3', 'João (2ºA)', '+15 pts')">APROVAR & DAR +15 PTS ✓</button>
+          <button class="btn-orange mono" style="flex:1; background: #FF3B30;" onclick="rejeitarResposta('val-3')">PEDIR REVISÃO ✗</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="card pitch">
+      <h3 class="mono">💡 Dica Pedagógica</h3><br>
+      <p style="font-size:13px">Valide as respostas com rapidez, aumenta o engajamento dos aluno em cerca de  <b>90%</b> ao receberem feedback imediato do professor!</p>
+    </div><br>
+    <div class="card">
+      <h4 class="mono">📊 LOG DE VALIDAÇÕES RECENTES</h4><br>
+      <div id="log-validacoes">
+        <div class="ranking-item mono" style="font-size:11px; padding:6px 0;"><span>Ana validou fração</span><b style="color:#2CFF62">Há 10 min</b></div>
+        <div class="ranking-item mono" style="font-size:11px; padding:6px 0;"><span>Carlos explicou matriz</span><b style="color:#2CFF62">Há 25 min</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer mono">Painel Docente • Maratona DevImpacto CESAR • Jaboatão - PE</footer>
+<script src="./teladoprofessor.js"></script>
+</body>
+</html>

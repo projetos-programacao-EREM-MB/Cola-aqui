@@ -1,0 +1,2 @@
+esse codigo foi escrito em htlm java e css, usando majoritariamente o uso de conteudos passado pelas aulas e novas
+formas de escrever o codigo tendo o mesmo desenpenho, atraves do chat gpt .

@@ -1,0 +1,1312 @@
+/* ==========================================
+   1. VARIÁVEIS GLOBAIS
+   ========================================== */
+:root {
+  --bg: #111318;
+  --green: #2CFF62;
+  --orange: #FF5A1F;
+  --card: #1A1D24;
+  --card2: #15181F;
+  --border: #2A2E39;
+  --text: #F5F5F5;
+  --muted: #8B90A0;
+}
+
+
+/* ==========================================
+   2. RESET & CONFIGURAÇÕES GLOBAIS
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1.4;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+
+/* ==========================================
+   3. CABEÇALHO (TOP BAR)
+   ========================================== */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 28px;
+  border-bottom: 1px solid var(--border);
+  background: #0F1116;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: var(--orange);
+}
+
+.nav {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+
+/* ==========================================
+   4. SEÇÃO HERO
+   ========================================== */
+.hero {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 56px 28px 24px;
+  display: grid;
+  grid-template-columns: 1.3fr .7fr;
+  gap: 32px;
+}
+
+.hero h1 {
+  font-size: 54px;
+  line-height: .9;
+  letter-spacing: -2px;
+}
+
+.hero h1 i {
+  color: var(--green);
+  font-style: normal;
+}
+
+.hero p {
+  margin-top: 16px;
+  color: #A0A4B0;
+  font-size: 18px;
+}
+
+.stats {
+  display: flex;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.stat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+  min-width: 115px;
+}
+
+.stat b {
+  font-size: 24px;
+  display: block;
+}
+
+.stat small {
+  color: var(--muted);
+}
+
+
+/* ==========================================
+   5. COMPONENTES (CARDS, FORMULÁRIOS & BOTÕES)
+   ========================================== */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.form-card {
+  border-color: var(--green);
+  box-shadow: 0 0 0 1px rgba(44, 255, 98, .15);
+}
+
+.field {
+  width: 100%;
+  background: #0F1116;
+  border: 1px solid var(--border);
+  color: white;
+  padding: 12px 14px;
+  font-family: 'JetBrains Mono';
+  font-size: 13px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  outline: none;
+}
+
+.field:focus {
+  border-color: var(--green);
+}
+
+.btn-orange {
+  width: 100%;
+  background: var(--orange);
+  color: white;
+  padding: 13px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: .2s;
+}
+
+.btn-orange:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 90, 31, .35);
+}
+
+.btn-green {
+  background: var(--green);
+  color: #111;
+  padding: 7px 14px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.hint {
+  display: block;
+  margin-top: 10px;
+  color: #5C6270;
+  font-size: 10px;
+}
+
+
+/* ==========================================
+   6. GRID & FEED DE DÚVIDAS
+   ========================================== */
+.grid {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 16px 28px 60px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 22px;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.online {
+  font-size: 11px;
+  color: var(--green);
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: 720px;
+  overflow: auto;
+  padding-right: 6px;
+}
+
+.duvida {
+  border-left: 3px solid var(--border);
+  padding: 16px;
+  background: var(--card2);
+  border-radius: 0 6px 6px 0;
+  transition: .2s;
+}
+
+.duvida:hover {
+  border-left-width: 4px;
+}
+
+.duvida.urgente {
+  border-left-color: var(--orange);
+}
+
+.duvida.resolvida {
+  border-left-color: var(--green);
+  opacity: .85;
+}
+
+.tag {
+  font-size: 10px;
+  padding: 3px 8px;
+  background: #222630;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+}
+
+
+/* ==========================================
+   7. RANKINGS, PITCH & RODAPÉ
+   ========================================== */
+.ranking.tip {
+  margin-top: 14px;
+  padding: 10px;
+  background: rgba(44, 255, 98, .08);
+  border: 1px solid var(--green);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.ranking-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 11px 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.pitch {
+  background: var(--orange);
+  color: white;
+  border: none;
+}
+
+.pitch p {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.footer {
+  text-align: center;
+  padding: 22px;
+  color: var(--muted);
+  font-size: 11px;
+  border-top: 1px solid var(--border);
+  margin-top: 20px;
+}
+
+
+/* ==========================================
+   8. RESPONSIVIDADE
+   ========================================== */
+@media (max-width: 900px) {
+  .hero, 
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero h1 {
+    font-size: 38px;
+  }
+}
+
+.btn-professor {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #FF5A1F; /* Mesma cor do destaque no texto */
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.btn-professor:hover {
+  background-color: #e04b16;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 90, 31, 0.3);
+}
+/* =========================================
+   CENTRAL DE MATÉRIAS
+========================================= */
+
+.materias-section {
+    max-width:1150px;
+    margin:0 auto;
+    padding:35px 28px 20px;
+}
+
+.materias-grid-completo {
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:14px;
+    margin-top:20px;
+}
+
+.materia-card-grande {
+    position:relative;
+    min-height:165px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-start;
+
+    padding:20px;
+
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:6px;
+
+    color:var(--text);
+    text-align:left;
+
+    cursor:pointer;
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+
+    font-family:'Space Grotesk', sans-serif;
+}
+
+.materia-card-grande:hover {
+    transform:translateY(-4px);
+    border-color:var(--green);
+    background:#1d2129;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25),
+        0 0 0 1px rgba(44,255,98,.08);
+}
+
+.materia-icon {
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#222630;
+    border:1px solid var(--border);
+    border-radius:6px;
+
+    font-size:22px;
+    margin-bottom:15px;
+
+    transition:.2s;
+}
+
+.materia-card-grande:hover .materia-icon {
+    border-color:var(--green);
+    transform:scale(1.05);
+}
+
+.materia-nome {
+    font-size:17px;
+    font-weight:700;
+    margin-bottom:6px;
+}
+
+.materia-desc {
+    color:var(--muted);
+
+    font-family:'JetBrains Mono', monospace;
+
+    font-size:10px;
+    line-height:1.5;
+
+    max-width:190px;
+}
+
+.materia-arrow {
+    position:absolute;
+
+    right:18px;
+    bottom:16px;
+
+    color:var(--green);
+
+    font-size:20px;
+
+    opacity:.5;
+
+    transition:.2s;
+}
+
+.materia-card-grande:hover .materia-arrow {
+    opacity:1;
+    transform:translateX(4px);
+}
+
+.materia-extra {
+    border-style:dashed;
+    opacity:.8;
+}
+
+.materia-extra:hover {
+    opacity:1;
+    border-color:var(--orange);
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width:1000px) {
+
+    .materias-grid-completo {
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media (max-width:600px) {
+
+    .materias-section {
+        padding-left:18px;
+        padding-right:18px;
+    }
+
+    .materias-grid-completo {
+        grid-template-columns:1fr;
+    }
+
+    .materia-card-grande {
+        min-height:145px;
+    }
+
+}
+/* =========================================================
+   CENTRAL DE AULAS
+   ========================================================= */
+
+.central-aulas {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0 28px 70px;
+}
+
+
+/* =========================================================
+   HERO DA CENTRAL
+   ========================================================= */
+
+.aulas-hero {
+    padding: 65px 0 45px;
+    position: relative;
+}
+
+.aulas-hero::before {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    background: rgba(44, 255, 98, 0.05);
+    border-radius: 50%;
+    filter: blur(70px);
+    right: 80px;
+    top: 20px;
+    pointer-events: none;
+}
+
+.aulas-label {
+    color: var(--green);
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.aulas-hero h1 {
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: -2px;
+    max-width: 720px;
+    margin-top: 12px;
+}
+
+.aulas-hero h1 i {
+    display: block;
+    color: var(--green);
+    font-style: normal;
+}
+
+.aulas-hero p {
+    color: var(--muted);
+    max-width: 650px;
+    margin-top: 18px;
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   ÁREA DE MATÉRIAS
+   ========================================================= */
+
+.materias-aulas {
+    margin-top: 10px;
+}
+
+.materias-aulas h2 {
+    font-size: 24px;
+    letter-spacing: -1px;
+}
+
+.aulas-materias-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 20px;
+}
+
+
+/* CARD DA MATÉRIA */
+
+.aula-materia-card {
+    position: relative;
+
+    min-height: 175px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1b1f27,
+            #15181f
+        );
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    color: var(--text);
+    text-align: left;
+
+    cursor: pointer;
+
+    font-family: 'Space Grotesk', sans-serif;
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.aula-materia-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--green);
+
+    background:
+        linear-gradient(
+            145deg,
+            #20262f,
+            #171b22
+        );
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.3),
+        0 0 0 1px rgba(44,255,98,.08);
+}
+
+
+/* MATÉRIA SELECIONADA */
+
+.aula-materia-card.ativa {
+    border-color: var(--green);
+
+    box-shadow:
+        0 0 0 1px rgba(44,255,98,.18),
+        0 10px 30px rgba(0,0,0,.25);
+}
+
+.aula-materia-card.ativa::after {
+    content: "SELECIONADA";
+
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+
+    color: var(--green);
+
+    padding: 4px 7px;
+
+    border: 1px solid rgba(44,255,98,.25);
+    background: rgba(44,255,98,.06);
+
+    border-radius: 3px;
+}
+
+
+/* ÍCONE */
+
+.aula-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #222630;
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    font-size: 23px;
+
+    margin-bottom: 16px;
+
+    transition: .2s;
+}
+
+.aula-materia-card:hover .aula-icon {
+    transform: scale(1.08);
+    border-color: var(--green);
+}
+
+
+/* NOME */
+
+.aula-materia-card strong {
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+
+/* DESCRIÇÃO */
+
+.aula-materia-card small {
+    color: var(--muted);
+
+    font-family: 'JetBrains Mono', monospace;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+
+    max-width: 190px;
+}
+
+
+/* SETA */
+
+.aula-arrow {
+    position: absolute;
+
+    right: 17px;
+    bottom: 15px;
+
+    color: var(--green);
+
+    font-size: 20px;
+
+    opacity: .45;
+
+    transition: .2s;
+}
+
+.aula-materia-card:hover .aula-arrow {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   CONTEÚDO DAS AULAS
+   ========================================================= */
+
+.conteudo-aulas {
+    margin-top: 45px;
+
+    padding-top: 35px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+/* CABEÇALHO */
+
+.conteudo-header {
+    margin-bottom: 20px;
+}
+
+.conteudo-header h2 {
+    font-size: 30px;
+    letter-spacing: -1px;
+    margin-top: 6px;
+}
+
+.conteudo-header p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   ASSUNTOS
+   ========================================================= */
+
+.assuntos {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin-bottom: 22px;
+}
+
+.assuntos button {
+    background: #1b1f27;
+
+    border: 1px solid var(--border);
+
+    color: #d8dbe2;
+
+    padding: 9px 14px;
+
+    border-radius: 5px;
+
+    font-family: 'JetBrains Mono', monospace;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.assuntos button:hover {
+    color: #111;
+    background: var(--green);
+    border-color: var(--green);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   PLAYER
+   ========================================================= */
+
+.player-area {
+    width: 100%;
+
+    background: #0b0d11;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    min-height: 430px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.3);
+}
+
+
+/* PLACEHOLDER */
+
+.player-placeholder {
+    min-height: 430px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(44,255,98,.05),
+            transparent 45%
+        );
+}
+
+.player-placeholder span {
+    width: 75px;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(44,255,98,.08);
+
+    border: 1px solid rgba(44,255,98,.2);
+
+    color: var(--green);
+
+    font-size: 30px;
+
+    margin-bottom: 18px;
+}
+
+.player-placeholder h3 {
+    font-size: 18px;
+}
+
+.player-placeholder p {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-top: 6px;
+}
+
+
+/* =========================================================
+   VÍDEO ABERTO
+   ========================================================= */
+
+.video-real {
+    display: grid;
+
+    grid-template-columns: 1.6fr .7fr;
+
+    min-height: 430px;
+}
+
+
+/* ÁREA DO VÍDEO */
+
+.video-fake {
+    min-height: 430px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #252a33,
+            #0b0d11 65%
+        );
+
+    position: relative;
+}
+
+.video-fake::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 25px;
+
+    border: 1px solid rgba(255,255,255,.04);
+
+    border-radius: 5px;
+}
+
+.video-fake span {
+    width: 76px;
+    height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--green);
+
+    color: #111;
+
+    font-size: 28px;
+
+    padding-left: 4px;
+
+    box-shadow:
+        0 0 35px rgba(44,255,98,.2);
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.video-fake span:hover {
+    transform: scale(1.08);
+}
+
+
+/* INFORMAÇÕES DA AULA */
+
+.video-info-large {
+    padding: 32px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: #15181f;
+
+    border-left: 1px solid var(--border);
+}
+
+.video-info-large > span {
+    color: var(--green);
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
+
+.video-info-large h2 {
+    font-size: 28px;
+
+    line-height: 1.05;
+
+    margin-top: 10px;
+
+    letter-spacing: -1px;
+}
+
+.video-info-large p {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    margin-top: 15px;
+}
+
+
+/* =========================================================
+   "ENTENDEU?"
+   ========================================================= */
+
+.entendeu-card {
+    margin-top: 18px;
+
+    padding: 22px 25px;
+
+    display: none;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1c2129,
+            #15181f
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+}
+
+.entendeu-card > div:first-child {
+    flex: 1;
+}
+
+.entendeu-card span {
+    color: var(--green);
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
+
+.entendeu-card h3 {
+    font-size: 20px;
+
+    margin-top: 5px;
+}
+
+.entendeu-card p {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-top: 5px;
+}
+
+
+/* BOTÕES */
+
+.entendeu-buttons {
+    display: flex;
+
+    gap: 10px;
+}
+
+.entendeu-buttons button {
+    padding: 11px 17px;
+
+    border-radius: 5px;
+
+    font-family: 'JetBrains Mono', monospace;
+
+    font-weight: 700;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.entendeu-sim {
+    background: var(--green);
+
+    color: #111;
+
+    border: 1px solid var(--green);
+}
+
+.entendeu-sim:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 20px rgba(44,255,98,.2);
+}
+
+.entendeu-nao {
+    background: transparent;
+
+    color: var(--orange);
+
+    border: 1px solid var(--orange);
+}
+
+.entendeu-nao:hover {
+    background: var(--orange);
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   PERGUNTAR PARA A TURMA
+   ========================================================= */
+
+.pergunta-final {
+    display: none;
+
+    margin-top: 14px;
+
+    padding: 28px;
+
+    border: 1px solid var(--orange);
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,90,31,.12),
+            rgba(255,90,31,.03)
+        );
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.pergunta-final::after {
+    content: "?";
+
+    position: absolute;
+
+    right: 30px;
+    bottom: -35px;
+
+    font-size: 150px;
+
+    font-weight: 700;
+
+    color: rgba(255,90,31,.05);
+}
+
+.pergunta-final > span {
+    color: var(--orange);
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
+
+.pergunta-final h3 {
+    font-size: 24px;
+
+    margin-top: 7px;
+}
+
+.pergunta-final p {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin: 7px 0 18px;
+
+    max-width: 550px;
+}
+
+.pergunta-btn {
+    display: inline-block;
+
+    width: auto;
+
+    text-decoration: none;
+
+    padding: 11px 18px;
+
+    border-radius: 5px;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .aulas-materias-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .video-real {
+        grid-template-columns: 1fr;
+    }
+
+    .video-info-large {
+        border-left: none;
+        border-top: 1px solid var(--border);
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .central-aulas {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .aulas-hero {
+        padding-top: 40px;
+    }
+
+    .aulas-hero h1 {
+        font-size: 36px;
+    }
+
+    .aulas-materias-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .aula-materia-card {
+        min-height: 145px;
+    }
+
+    .player-area,
+    .player-placeholder,
+    .video-fake {
+        min-height: 300px;
+    }
+
+    .entendeu-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .entendeu-buttons {
+        width: 100%;
+    }
+
+    .entendeu-buttons button {
+        flex: 1;
+    }
+
+    .video-info-large {
+        padding: 24px;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .aulas-hero h1 {
+        font-size: 31px;
+    }
+
+    .assuntos {
+        gap: 6px;
+    }
+
+    .assuntos button {
+        font-size: 9px;
+        padding: 8px 10px;
+    }
+
+    .entendeu-buttons {
+        flex-direction: column;
+    }
+
+}
+/* =========================================================
+   YOUTUBE PLAYER
+   ========================================================= */
+
+.youtube-player {
+    width: 100%;
+    height: 100%;
+    min-height: 430px;
+    background: #000;
+}
+
+.youtube-player iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 430px;
+    display: block;
+    border: none;
+}
+
+
+@media (max-width: 1000px) {
+
+    .youtube-player {
+        min-height: 400px;
+    }
+
+    .youtube-player iframe {
+        min-height: 400px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .youtube-player {
+        min-height: 300px;
+    }
+
+    .youtube-player iframe {
+        min-height: 300px;
+    }
+
+}

@@ -1,0 +1,397 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Central de Aulas | COLA AQUI</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="sttyle.css">
+
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="top-bar">
+
+    <div class="logo mono">
+        &lt; COLA AQUI <span>/&gt; [Aluno]</span>
+    </div>
+
+    <div class="nav mono">
+        CENTRAL DE AULAS • DEVIMPACTO
+    </div>
+
+    <div class="mono">
+        <a href="index.html" class="btn-professor">
+            ← VOLTAR
+        </a>
+    </div>
+
+</header>
+
+
+<main class="central-aulas">
+
+    <!-- CABEÇALHO -->
+    <section class="aulas-hero">
+
+        <div>
+
+            <span class="mono aulas-label">
+                🎥 CENTRAL DE AULAS
+            </span>
+
+            <h1>
+                Travou em alguma matéria?
+                <i>Começa por aqui.</i>
+            </h1>
+
+            <p>
+                Escolha uma matéria, encontre o assunto que está causando
+                dificuldade e assista a uma explicação.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- MATÉRIAS -->
+    <section class="materias-aulas">
+
+        <div class="section-head">
+
+            <div>
+
+                <span class="mono aulas-label">
+                    📚 MATÉRIAS
+                </span>
+
+                <h2>
+                    ESCOLHA UMA MATÉRIA
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="aulas-materias-grid">
+
+            <!-- MATEMÁTICA -->
+            <button
+                type="button"
+                class="aula-materia-card ativa"
+                onclick="selecionarAulaMateria('matematica', this)">
+
+                <span class="aula-icon">📐</span>
+
+                <strong>Matemática</strong>
+
+                <small>
+                    Equações, funções, geometria,
+                    frações e muito mais.
+                </small>
+
+                <span class="aula-arrow">→</span>
+
+            </button>
+
+
+            <!-- PORTUGUÊS -->
+            <button
+                type="button"
+                class="aula-materia-card"
+                onclick="selecionarAulaMateria('portugues', this)">
+
+                <span class="aula-icon">📖</span>
+
+                <strong>Português</strong>
+
+                <small>
+                    Gramática, interpretação,
+                    redação e literatura.
+                </small>
+
+                <span class="aula-arrow">→</span>
+
+            </button>
+
+
+            <!-- FÍSICA -->
+            <button
+                type="button"
+                class="aula-materia-card"
+                onclick="selecionarAulaMateria('fisica', this)">
+
+                <span class="aula-icon">⚡</span>
+
+                <strong>Física</strong>
+
+                <small>
+                    Movimento, força, energia,
+                    eletricidade e mais.
+                </small>
+
+                <span class="aula-arrow">→</span>
+
+            </button>
+
+
+            <!-- QUÍMICA -->
+            <button
+                type="button"
+                class="aula-materia-card"
+                onclick="selecionarAulaMateria('quimica', this)">
+
+                <span class="aula-icon">🧪</span>
+
+                <strong>Química</strong>
+
+                <small>
+                    Átomos, moléculas,
+                    reações e tabela periódica.
+                </small>
+
+                <span class="aula-arrow">→</span>
+
+            </button>
+
+
+            <!-- HISTÓRIA -->
+            <button
+                type="button"
+                class="aula-materia-card"
+                onclick="selecionarAulaMateria('historia', this)">
+
+                <span class="aula-icon">🏛️</span>
+
+                <strong>História</strong>
+
+                <small>
+                    Brasil, revoluções,
+                    guerras e civilizações.
+                </small>
+
+                <span class="aula-arrow">→</span>
+
+            </button>
+
+
+            <!-- BIOLOGIA -->
+            <button
+                type="button"
+                class="aula-materia-card"
+                onclick="selecionarAulaMateria('biologia', this)">
+
+                <span class="aula-icon">🧬</span>
+
+                <strong>Biologia</strong>
+
+                <small>
+                    Células, genética,
+                    corpo humano e ecologia.
+                </small>
+
+                <span class="aula-arrow">→</span>
+
+            </button>
+
+
+            <!-- GEOGRAFIA -->
+            <button
+                type="button"
+                class="aula-materia-card"
+                onclick="selecionarAulaMateria('geografia', this)">
+
+                <span class="aula-icon">🌎</span>
+
+                <strong>Geografia</strong>
+
+                <small>
+                    Clima, mapas, população
+                    e espaço geográfico.
+                </small>
+
+                <span class="aula-arrow">→</span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTEÚDO DA MATÉRIA -->
+    <section class="conteudo-aulas" id="conteudo-aulas">
+
+        <div class="conteudo-header">
+
+            <div>
+
+                <span class="mono aulas-label">
+                    📚 CENTRAL DE ESTUDOS
+                </span>
+
+                <h2 id="titulo-materia">
+                    Matemática
+                </h2>
+
+                <p id="descricao-materia">
+                    Escolha um assunto para começar.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ASSUNTOS: PREENCHIDOS PELO JAVASCRIPT -->
+        <div class="assuntos" id="assuntos">
+
+            <button type="button" onclick="abrirAula('Frações')">
+                Frações
+            </button>
+
+            <button type="button" onclick="abrirAula('Equações')">
+                Equações
+            </button>
+
+            <button type="button" onclick="abrirAula('Bhaskara')">
+                Bhaskara
+            </button>
+
+            <button type="button" onclick="abrirAula('Funções')">
+                Funções
+            </button>
+
+            <button type="button" onclick="abrirAula('Geometria')">
+                Geometria
+            </button>
+
+        </div>
+
+
+        <!-- PLAYER -->
+        <div class="player-area" id="player-area">
+
+            <div class="player-placeholder">
+
+                <span>▶</span>
+
+                <h3>
+                    Escolha um assunto
+                </h3>
+
+                <p>
+                    A aula aparecerá aqui.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- FEEDBACK -->
+        <div
+            class="entendeu-card"
+            id="entendeu-card"
+            style="display: none;">
+
+            <div>
+
+                <span class="mono">
+                    🤔 E AÍ?
+                </span>
+
+                <h3>
+                    Você entendeu?
+                </h3>
+
+                <p>
+                    Se a explicação resolveu sua dúvida,
+                    show! Caso contrário, a turma pode ajudar.
+                </p>
+
+            </div>
+
+            <div class="entendeu-buttons">
+
+                <button
+                    type="button"
+                    class="entendeu-sim"
+                    onclick="entendeuAula()">
+
+                    ✓ ENTENDI
+
+                </button>
+
+                <button
+                    type="button"
+                    class="entendeu-nao"
+                    onclick="naoEntendeu()">
+
+                    ✕ AINDA NÃO
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PERGUNTA -->
+        <div
+            class="pergunta-final"
+            id="pergunta-final"
+            style="display: none;">
+
+            <span class="mono">
+                💬 PRECISA DE MAIS AJUDA?
+            </span>
+
+            <h3>
+                Pergunte para a turma.
+            </h3>
+
+            <p>
+                Explique onde você travou e deixe
+                outros alunos ajudarem.
+            </p>
+
+            <a
+                href="index.html"
+                class="btn-orange pergunta-btn">
+
+                PERGUNTAR PARA A TURMA →
+
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- RODAPÉ -->
+<footer class="footer mono">
+
+    Feito por alunos da rede pública
+    para a Maratona DevImpacto CESAR • Jaboatão - PE
+
+</footer>
+
+
+<!-- JAVASCRIPT: CARREGADO COMO SCRIPT, NÃO COMO CSS -->
+<script src="videoaulas.js"></script>
+
+</body>
+</html>
+```
